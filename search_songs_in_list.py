@@ -2,20 +2,20 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import csv
 
-# Connect to Spotify
+# Connect to Spotify - Create a web app at https://developer.spotify.com/dashboard/. Then paste client id & secret below
 spotify = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='[Enter Client ID]',client_secret='[Enter Client Secret]'))
-# token = credentials.get_access_token()
-#spotify = spotipy.Spotify()
 
-# Set up the output
-with open('/Users/sm029588/Desktop/spotify_test_out.csv', 'w', newline='') as csv_output:
+
+# Set up the output - just paste your file path in line 10. Change nothing else
+with open('[Output File path]', 'w', newline='') as csv_output:
     csv_writer = csv.writer(csv_output, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow(
         ["Performer", "Song", "Updated_Performer", "Updated_Song", "spotify_genre", "spotify_track_id", "spotify_track_album", "spotify_track_duration_ms",
          "spotify_track_popularity","spotify_track_explicit","spotify_track_track_number"])
 
+# Paste the input file path with the following columns in this order: SongID, Song, Performer, Updated_Perfomer, Updated_Song
     i = 0
-    with open('/Users/sm029588/Desktop/spotify_test.csv') as csv_input:
+    with open('[Input File Path]') as csv_input:
         csv_reader = csv.DictReader(csv_input, delimiter=',')
         for song in csv_reader:
             i += 1

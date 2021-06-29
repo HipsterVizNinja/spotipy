@@ -2,17 +2,16 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import csv
 
-# Connect to Spotify
+# Connect to Spotify - Create a web app at https://developer.spotify.com/dashboard/. Then paste client id & secret below
 spotify = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='[Enter Client ID]',client_secret='[Enter Client Secret]'))
-# token = credentials.get_access_token()
-#spotify = spotipy.Spotify()
 
 
-# Set up the output
+# Set up the output - just paste your file path in line 10. Change nothing else
 with open('[Enter Output File Name]', 'w', newline='') as csv_output:
     csv_writer = csv.writer(csv_output, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow(["spotify_track_id", "danceability", "energy", "key", "loudness", "mode", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo", "time_signature"])
 
+# Paste the input file path with the spotify_id column called 'spotify_track_id' or change the variable in line 21
     i = 0
     with open('[Enter Input File Name]') as csv_input:
         csv_reader = csv.DictReader(csv_input, delimiter=',')
