@@ -1,7 +1,7 @@
 
 import requests
-CLIENT_ID = 'paste id'
-CLIENT_SECRET = 'paste secret'
+CLIENT_ID = 'PASTE YOUR ID'
+CLIENT_SECRET = 'PASTE YOUR SECRET'
 AUTH_URL = 'https://accounts.spotify.com/api/token'
 
 # POST
@@ -90,7 +90,7 @@ df2 = pd.DataFrame(data)
 print(df2.head)
 
 
-df2.to_csv(r'file path/filename.csv')
+df2.to_csv(r'PASTE YOUR OUTPUT FILEPATH')
 
 df2.shape
 
